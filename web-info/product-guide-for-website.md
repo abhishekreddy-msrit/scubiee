@@ -159,7 +159,7 @@ A local HTTP service (default `http://127.0.0.1:8765`) that:
 
 ### 5. MCP (Model Context Protocol)
 
-Standard protocol for AI tools to call external capabilities. Scubiee registers as server name **`scubiee`** with tools like `map`, `focus`, `grep`. The agent calls these instead of (or before) naive file grepping.
+Standard protocol for AI tools to call external capabilities. Scubiee registers as server name **`scubiee`** with one `map` tool (`config=find|focus|related|graph`) plus `gate` and `status`. Exact strings stay on host Grep. The agent calls `map` instead of (or before) naive file grepping.
 
 ---
 
@@ -350,24 +350,22 @@ Use these as **feature cards** or expandable sections.
 
 ## MCP tools — what the AI actually uses
 
-Default **`phase` / ship** surface (Cursor and most installs). Full reference: [`../docs/web-info/mcp-tools-reference.md`](../docs/web-info/mcp-tools-reference.md).
+One locate tool, **`map`**, with four configs, plus `gate` and `status`. Full reference: [`../docs/web-info/mcp-tools-reference.md`](../docs/web-info/mcp-tools-reference.md).
 
 | Tool | User-visible benefit | Example agent question |
 |------|---------------------|------------------------|
 | **`gate`** | Tiny “is this repo ready?” check | (automatic at chat start) |
-| **`status`** | Full health: managed, warming, paused | “Can I use Scubiee in this workspace?” |
-| **`map`** | Ranked map of where to look | “Where is OAuth handled?” |
-| **`pack_context`** | Lean heatmap around a seed | “Pack context for this function” |
-| **`expand_context`** | Grow callees/callers | “Who calls this?” |
-| **`collect_hot_context`** | Optional batched bodies | “Pull bodies for these hot ids” |
-| **`workspace`** | Session memory — pins, heatmap | “What did we already look at?” |
-| **`expand`** | Re-open a previous code span | (follow-up without re-searching) |
+| **`status`** | Engine health | “Can I use Scubiee in this workspace?” |
+| **`map` `config=find`** | Ranked locations plus the top result's code | “Where is OAuth handled?” |
+| **`map` `config=focus`** | A name's body, callers/callees, and sibling names | “Show me this symbol and its wiring” |
+| **`map` `config=related`** | Related bodies for a chunk you already have | “Given this function, what else matters?” |
+| **`map` `config=graph`** | Files, symbol names, and call edges, no bodies | “How is this area shaped?” |
 
-Exact/name lookup stays on the host (Grep/Glob/Read). Classic MCP `focus`/`grep`/`glob` are opt-in only.
+Exact/name lookup stays on the host (Grep/Glob/Read).
 
 **Recommended agent flow (for docs page):**
 
-`gate()` → `map(query)` → `focus(target)` → edit → `scubiee sync` if needed
+`gate()` once → one `map` config (`find`, `focus`, `related`, or `graph`) → edit
 
 **Anti-patterns to document:**
 

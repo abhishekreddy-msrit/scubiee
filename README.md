@@ -14,22 +14,22 @@
 
 <p align="center">
   <b>Local context engine for AI coding tools.</b><br>
-  Index your repository on your machine. Agents search by meaning - <code>map</code> · <code>focus</code> · <code>grep</code> - instead of grepping blindly through files.
+  Index your repository on your machine. Agents locate code with one <code>map</code> tool (<code>find</code> · <code>focus</code> · <code>related</code> · <code>graph</code>) instead of walking the tree.
 </p>
 
 ---
 
-Type `scubiee connect` once and your AI coding assistant gets a **local index** of the repo - ranked discovery, deep focus, and exact search - without uploading code to a vendor.
+Type `scubiee connect` once and your AI coding assistant gets a **local index** of the repo - ranked discovery through `map` - without uploading code to a vendor. Exact strings stay on host Grep.
 
 - **Fully local.** Tree-sitter + embeddings on disk. Code never leaves the machine. The only network step is a one-time model download at setup (~270 MB).
-- **Built for agents.** MCP tools `map` · `focus` · `grep` in Cursor, Claude Code, Copilot, Kiro, and more.
+- **Built for agents.** One MCP tool, `map` (`find` · `focus` · `related` · `graph`), plus `gate` and `status`, in Cursor, Claude Code, Copilot, Kiro, and more.
 - **Not a cloud RAG.** A real local engine with live Merkle sync. Index once, stay fresh as you edit and pull.
 
 <p align="center">
-  <img src="visuals/image.png" alt="Scubiee map, focus, and grep" width="900">
+  <img src="visuals/image.png" alt="Scubiee map configs find, focus, related, and graph" width="900">
 </p>
 <p align="center">
-  <em>Ranked map hits, focused spans, exact grep - all against a local index.</em>
+  <em>Ranked map hits for find, focus, related, and graph - all against a local index.</em>
 </p>
 
 ---
@@ -192,7 +192,7 @@ Run `init` and `connect` in that project, then reload MCP. For Kiro / Copilot / 
 
 ---
 
-**PyPI:** [scubiee](https://pypi.org/project/scubiee/) · **Release:** 0.3.15 · Contributors: `uv pip install -e .` then `scubiee setup`
+**PyPI:** [scubiee](https://pypi.org/project/scubiee/) · Contributors: `uv pip install -e .` then `scubiee setup`
 
 ## License
 

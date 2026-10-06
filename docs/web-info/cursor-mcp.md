@@ -2,14 +2,14 @@
 
 Scubiee integrates with AI coding tools through the **Model Context Protocol (MCP)**. The MCP server name is **`scubiee`**. It talks to the local Scubiee daemon (default `http://127.0.0.1:8765`).
 
-**Docs assume [scubiee 0.3.14](https://pypi.org/project/scubiee/0.3.14/)** (published on PyPI). Install/debug: [Install & debug](./install-and-debug.md).
+**Docs follow the [current PyPI release](https://pypi.org/project/scubiee/).** Install/debug: [Install & debug](./install-and-debug.md).
 
 ---
 
 ## First-time setup
 
 ```text
-1. uv tool install --force scubiee==0.3.14 --index-url https://pypi.org/simple --refresh
+1. uv tool install --force scubiee --index-url https://pypi.org/simple --refresh
 2. scubiee setup --repair
 3. cd your-project && scubiee init .
 4. scubiee connect --cursor
@@ -138,7 +138,7 @@ Put a unique string in a **`.py`** file in scope, sync, then search.
 
 ```bash
 scubiee unlock-tool
-uv tool install --force scubiee==0.3.13 --index-url https://pypi.org/simple --refresh
+uv tool install --force scubiee --index-url https://pypi.org/simple --refresh
 scubiee setup --repair
 scubiee connect --cursor
 ```

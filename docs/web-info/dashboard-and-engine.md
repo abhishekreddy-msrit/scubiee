@@ -65,7 +65,7 @@ The port is **not fixed** — always use `scubiee dashboard --status` to get the
 **Fix:** Upgrade to **scubiee 0.3.13+** and retry:
 
 ```bash
-uv tool install --force scubiee==0.3.13 --index-url https://pypi.org/simple --refresh
+uv tool install --force scubiee --index-url https://pypi.org/simple --refresh
 scubiee dashboard --no-open
 scubiee dashboard --status
 ```
